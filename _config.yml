@@ -2,6 +2,10 @@ name: adharris
 pygments: true
 permalink: pretty
 
+prose:
+	siteurl: "https://adharris.net"
+    rooturl: _posts
+
 sass:
     syntax: scss        # scss|sass
     style:  nested  # nested|expanded|compact|compressed
