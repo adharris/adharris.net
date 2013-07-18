@@ -5,36 +5,30 @@ permalink: pretty
 prose:
     siteurl: "https://adharris.net"
     rooturl: "_posts"
-    
+
     metadata:
-    _posts:
-      - name: "categories"
-        field:
-          element: "hidden"
-          value:
-            - "post"
-      - name: "layout"
-        field:
-          element: "text"
-          label: "Layout"
-          value: "default"
-      - name: "order"
-        field:
-          element: "number"
-          label: "Order"
-          value: 0
-      - name: "item"
-        field:
-          element: "select"
-          label: "Item"
-          placeholder: "Select an Item"
-          options:
-            - name: "Item 1"
-              value: "item1"
-            - name: "Item 2"
-              value: "item2"
-          selected: "item2"
-          
+      _posts:
+        - name: "Title"
+          field:
+            element: text
+            label: Title
+        - name: "categories"
+          field:
+            element: "hidden"
+            value:
+              - "post"
+        - name: "layout"
+          field:
+            element: "select"
+            label: "Layout"
+            placeholder: "Select a layout"
+            options:
+              - name: "Default"
+                value: "default"
+              - name: "Blog Post"
+                value: "post"
+
+
 sass:
     syntax: scss        # scss|sass
     style:  nested  # nested|expanded|compact|compressed
