@@ -4,7 +4,7 @@ permalink: pretty
 
 prose:
     siteurl: "https://adharris.net"
-    rooturl: _posts
+    rooturl: "_posts"
 
 sass:
     syntax: scss        # scss|sass
