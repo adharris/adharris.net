@@ -1,0 +1,15 @@
+---
+layout: default
+title: adharris
+---
+
+{% for post in site.posts %}
+<div class="pure-g-r">
+  <div class="pure-u-1-8">
+    <small>{{ post.date | date_to_string }}</small>
+  </div>
+  <div class="pure-u-5-6">
+    <a href="{{ post.url }}">{{ post.title }}</a>
+  </div>
+</div>
+{% endfor %}

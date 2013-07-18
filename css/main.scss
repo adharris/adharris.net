@@ -1,0 +1,81 @@
+// Kuler Ones Best Bet3
+$blue: #001C41;
+$green: #007C41;
+$yellow: #BEB40F;
+$orange: #DD344D;
+$red: #C10000;
+
+$bg: #FFFFFF;
+$text: #56756B;
+$highlight: #D75515;
+
+// $green: #6EA85E;
+
+$code-bg: lighten($text, 58%);
+$code-border: $green;
+
+$copy_font: 'Lato';
+$mono_font: 'Inconsolata';
+
+@import url(http://fonts.googleapis.com/css?family=Lato|Inconsolata);
+
+body {
+  background-color: $bg;
+  color: $text;
+  font-family: $copy_font, sans-serif;
+  line-height: 1.6em;
+}
+
+.tag {
+  color: $blue;
+}
+
+#page {
+  padding: .5em 1.5em;
+}
+
+h1 {
+  font-family: $mono_font;
+}
+
+#content {
+  margin-left: .5em;
+  border-left: $code-border 1px dotted;
+}
+
+code, pre {
+  font-family: $mono_font, monospace;
+  background-color: $code-bg;
+  padding: 2px 6px;
+  border: solid 1px $code-border;
+  border-radius: 3px;
+  color: darken($text, 20%)
+}
+
+div.pad {
+  padding: 0 2em;
+}
+
+pre code {
+  border: none;
+  padding: 0;
+}
+
+a {
+  color: $highlight;
+  &:hover {
+    color: #F28C0F;
+  }
+}
+
+h1, h2, h3 {
+  color: $highlight;
+  a {
+    text-decoration: none;
+  }
+  small {
+    color: $text;
+    font-weight: normal;
+    font-size: .6em;
+  }
+}
