@@ -1,81 +1,41 @@
-// Kuler Ones Best Bet3
-$blue: #001C41;
-$green: #007C41;
-$yellow: #BEB40F;
-$orange: #DD344D;
-$red: #C10000;
+@charset "UTF-8";
 
-$bg: #FFFFFF;
-$text: #56756B;
-$highlight: #D75515;
+@import url(http://fonts.googleapis.com/css?family=Nunito:300);
 
-// $green: #6EA85E;
+$include-html-classes: false;
+$include-html-global-classes: true;
+$include-html-type-classes: true;
 
-$code-bg: lighten($text, 58%);
-$code-border: $green;
+$body-font-family: "Nunito", Helvetica, Arial, sans-serif;
+$header-font-family: "Nunito", Helvetica, Arial, sans-serif;
 
-$copy_font: 'Lato';
-$mono_font: 'Inconsolata';
 
-@import url(http://fonts.googleapis.com/css?family=Lato|Inconsolata);
+$primary-color: #588729;
+$subheader-font-color: #D94436;
 
-body {
-  background-color: $bg;
-  color: $text;
-  font-family: $copy_font, sans-serif;
-  line-height: 1.6em;
+$anchor-font-color-hover: #F26237;
+
+@import 'normalize';
+
+@import 'foundation/_variables';
+@import
+  'foundation/components/global',
+  'foundation/components/type',
+  'foundation/components/side-nav',
+  'foundation/components/grid';
+
+body {padding: 2em 0 5em;}
+
+a { @include single-transition(color); }
+
+
+#page { @include grid-row; 
+  &.no-sidebar #content {@include grid-column(12);}
+  &.with-sidebar #content { @include grid-column(9); }
 }
 
-.tag {
-  color: $blue;
-}
-
-#page {
-  padding: .5em 1.5em;
-}
-
-h1 {
-  font-family: $mono_font;
-}
-
-#content {
-  margin-left: .5em;
-  border-left: $code-border 1px dotted;
-}
-
-code, pre {
-  font-family: $mono_font, monospace;
-  background-color: $code-bg;
-  padding: 2px 6px;
-  border: solid 1px $code-border;
-  border-radius: 3px;
-  color: darken($text, 20%)
-}
-
-div.pad {
-  padding: 0 2em;
-}
-
-pre code {
-  border: none;
-  padding: 0;
-}
-
-a {
-  color: $highlight;
-  &:hover {
-    color: #F28C0F;
-  }
-}
-
-h1, h2, h3 {
-  color: $highlight;
-  a {
-    text-decoration: none;
-  }
-  small {
-    color: $text;
-    font-weight: normal;
-    font-size: .6em;
-  }
+#sidebar { @include grid-column(3);
+  section h1 { font-size: emCalc(22); }
+  nav ul { @include side-nav; }
+  header+nav ul  { padding-top: 0;}
 }

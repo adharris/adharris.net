@@ -2,41 +2,59 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>{{ page.title }}</title>
         <meta name="viewport" content="width=device-width">
 
-        <link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+        <title>{{ page.title }}</title>
 
         <!-- syntax highlighting CSS -->
         <link rel="stylesheet" href="/css/syntax.css">
 
         <!-- Custom CSS -->
-        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.2.0/pure-min.css">
         <link rel="stylesheet" href="/css/main.css">
+
+        <script src="/js/custom.modernizr.js"></script>
 
     </head>
     <body>
 
-      <div id="page" class="pure-g-r">
-        <div class="pure-u-1">
-          <div class="pure-g-r">
-            <div class="pure-u-2-5">
-              <h1 class="title"><a href="/">&lt;{{ site.name }}&gt;</a></h1>
-            </div>
-          </div>
-        </div>
 
-        <div id="content">
-          <div class="pure-g-r">
-            <div class="pure-u-3-4">
-              <div class="pad">{{ content }}</div>
-            </div>
-          </div>
+      {% capture sidebar %}
+
+        {% if page.series | size > 0 %}
+        <section id="series">
+          <header><h4>
+            <small>This series</small><br />
+            {{ page.series_title }}
+          </h4></header>
+          <nav>
+            <ul>
+              <li class="divider"></li>
+              {% for related in page.series %}
+              {% for post in site.posts %}
+              {% if post.id == related %}
+              <li {% if page.id == post.id %}class='active'{% endif %}>
+                <a href="{{ post.url }}">{{ post.short_title }}</a>
+              </li>
+              {% endif %}
+              {% endfor %}
+              {% endfor %}
+              <li class="divider"></li>
+            </ul> 
+          </nav>
+        </section>
+        {% endif %}
+      {% endcapture %}
+
+      <div id="page" class='{% if sidebar %}with-sidebar{% else %}no-sidebar{% endif %}'>
+        <div id="sidebar">
+          <header>
+            <h1><a href="/">{{ site.name }}</a></h1>
+          </header>
+          {{ sidebar }}
         </div>
-        <div class="pure-u-1">
-          <h1>&lt;/{{ site.name }}&gt;</h1>
-        </div>
+        <section id="content">
+          {{ content }}
+        </section>
       </div>
 
     </body>

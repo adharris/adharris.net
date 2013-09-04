@@ -1,33 +1,14 @@
 ---
-categories: 
-  - post
-published: false
-layout: default
+published: true
+layout: post
+
+short_title: Setup
+
+series_title: Python Bakery
+series_label: Part
+series:
+ - /2013/08/16/python-bakery
+ - /2013/08/16/python-bakery-2
 ---
 
-
-```python
-key = "privatekey"
-
-  data = request.cookies.get('CHOCOLATECHIP')
-  flash(data)
-  if data:
-    data = urllib.unquote(data.encode('ascii')).decode("utf-8")
-    data = base64.b64decode(data)
-
-    signature = data[0:64]
-    encrypted_data = data[64:]
-
-    token = hmac.new(key, encrypted_data, hashlib.sha256).hexdigest()
-
-    if signature == token:
-      from Crypto.Cipher import AES
-      
-      mode = AES.MODE_ECB
-      padded_key = key.ljust(16, '\0')
-      decryptor = AES.new(padded_key, mode)
-      from phpserialize import loads
-      cchip =  loads(decryptor.decrypt(encrypted_data))
-      
-```
-      
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod quam nemo facilis reprehenderit in iusto pariatur corporis velit. Possimus nemo cupiditate ut harum incidunt quisquam ullam non recusandae quam laudantium quae accusantium pariatur culpa autem dolores deleniti rerum similique quibusdam expedita quidem fugiat blanditiis voluptates odit provident aliquam accusamus illum animi labore assumenda molestiae! Eius inventore animi voluptate possimus labore ea distinctio expedita perferendis aspernatur excepturi quidem error est illum quasi eum temporibus nisi voluptates voluptatem delectus in fuga unde sit asperiores aliquid ratione amet magnam obcaecati iusto laborum provident. Consequatur quaerat impedit ipsa voluptate nesciunt adipisci veniam excepturi accusantium. Hic at nesciunt sit illum labore facilis distinctio rem laboriosam minus veniam culpa quibusdam repellat optio temporibus asperiores illo dignissimos quaerat sunt quis quos consequatur quo autem modi placeat officiis iusto aperiam quasi earum minima sapiente! Assumenda doloremque fuga magnam atque aspernatur nostrum quis voluptatibus repellendus error harum at laboriosam itaque iste voluptas natus sed nulla! Adipisci repellat asperiores et nulla minus iste aliquam aspernatur atque veniam aut reprehenderit est commodi. Sequi dolorum nisi unde tempore suscipit consequatur fugiat necessitatibus ad blanditiis temporibus dolor ullam optio debitis fuga alias aut in quis repellat? Aliquam id facilis autem illum quod enim quasi cumque reiciendis iure tenetur nostrum accusantium laborum ratione voluptatem expedita ex excepturi provident nobis nulla asperiores alias? Eius sed quod qui quia veritatis magni in iure molestias placeat nemo at suscipit amet recusandae nulla rerum porro quam sint atque odit quo magnam maiores quos. Tenetur ab maxime sapiente provident minima. Quas quisquam at pariatur dignissimos cupiditate blanditiis accusantium commodi vel deserunt deleniti repudiandae illum fuga nisi distinctio nesciunt dolorum neque voluptates quod molestias molestiae ipsa inventore veritatis enim possimus ratione. Dignissimos commodi dicta illum. Facere quae distinctio quisquam laboriosam tempora non sit maiores nemo officiis sunt molestias aut eveniet. Omnis sequi reiciendis eius deleniti laudantium nostrum quam est fugiat esse consectetur molestiae earum! Esse sed quam tenetur ipsam cupiditate commodi hic vero quo vitae praesentium laboriosam dolores odio libero error neque nam maiores fugiat deserunt placeat provident atque illum est autem assumenda qui mollitia reprehenderit aspernatur pariatur ducimus omnis repellat doloremque iure velit tempora cum animi accusamus quos dicta sequi natus incidunt ipsum! Ipsam labore iusto quod unde explicabo odit accusamus eos temporibus ex nemo! Consequatur quasi eum odio adipisci omnis nesciunt amet commodi earum provident optio dolor officiis pariatur inventore. Debitis aperiam possimus ducimus illo magnam aliquid nesciunt magni ut totam quaerat quo minima quia asperiores placeat consectetur repudiandae rem eligendi facilis ab nisi eos quisquam hic commodi fugit id aspernatur blanditiis obcaecati cupiditate deleniti excepturi inventore sequi adipisci aut nemo ex ea iste a assumenda mollitia amet sunt at cumque sapiente voluptatibus culpa laudantium. Accusantium itaque unde quis labore assumenda tempore voluptatum ipsum adipisci natus placeat recusandae alias optio eveniet tempora in atque inventore a voluptatem repudiandae id maxime temporibus distinctio quo provident est aut quia eaque totam soluta earum quibusdam ad fuga deleniti. Aut minus deleniti doloribus ducimus consequuntur voluptates amet? Eos perspiciatis eius distinctio culpa.
