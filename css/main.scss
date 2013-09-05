@@ -9,33 +9,48 @@ $include-html-type-classes: true;
 $body-font-family: "Nunito", Helvetica, Arial, sans-serif;
 $header-font-family: "Nunito", Helvetica, Arial, sans-serif;
 
+@import 'normalize';
+@import 'foundation/_variables';
+@import 'foundation/components/global';
 
 $primary-color: #588729;
 $subheader-font-color: #D94436;
 
 $anchor-font-color-hover: #F26237;
 
-@import 'normalize';
+$h2-font-size: emCalc(32);
+$h3-font-size: emCalc(25);
+$row-width: emCalc(1100);
+$column-gutter: emCalc(50);
 
-@import 'foundation/_variables';
 @import
-  'foundation/components/global',
   'foundation/components/type',
   'foundation/components/side-nav',
   'foundation/components/grid';
 
-body {padding: 2em 0 5em;}
+$divider: $side-nav-divider-color $side-nav-divider-style $side-nav-divider-size;
+
+body {padding: emCalc(20, 0, 50); }
 
 a { @include single-transition(color); }
-
 
 #page { @include grid-row; 
   &.no-sidebar #content {@include grid-column(12);}
   &.with-sidebar #content { @include grid-column(9); }
 }
 
+#content { margin-top: emCalc(16); 
+  article + article { margin-top: emCalc(40); }
+}
+
 #sidebar { @include grid-column(3);
-  section h1 { font-size: emCalc(22); }
-  nav ul { @include side-nav; }
-  header+nav ul  { padding-top: 0;}
+  text-align: right;
+  &> header {margin-bottom: emCalc(8); 
+    h1, h2, h3, h4 {margin-bottom: 0; }
+  }
+  section h4 { font-size: emCalc(22); margin-bottom: emCalc(2); }
+  nav ul { @include side-nav;
+    li:hover a { color: $anchor-font-color-hover; }
+  }
+  h4+nav ul  { padding-top: emCalc(2); }
 }

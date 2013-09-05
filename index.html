@@ -3,20 +3,18 @@ layout: default
 title: adharris
 ---
 
-<section id="index">
+<header>
+  <h2>Recent Posts</h2>
+</header>
+
+{% for post in site.posts %}
+<article id="{{ post.id }}" class='post'>
   <header>
-    <h1>Recent Posts</h1>
+    <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
   </header>
-  {% for post in site.posts %}
-  <hr>
-  <article id="{{ post.id }}" class='post'>
-    <header>
-      <h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
-    </header>
-    {{ post.excerpt }}
-    <div class="read-more">
-      <a href="{{ post.url }}">Read more...</a>
-    </div>
-  </article>
-  {% endfor %}
-</section>
+  {{ post.excerpt }}
+  <div class="read-more">
+    <a href="{{ post.url }}">Read more...</a>
+  </div>
+</article>
+{% endfor %}

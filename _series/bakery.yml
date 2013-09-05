@@ -1,0 +1,9 @@
+name: Bakery Login with Python
+tease:
+  Walks through how to use Drupal Bakery single sign on with your python applications.
+
+articles:
+  - id: /2013/08/16/python-bakery
+    title: "Part 1: Setup"
+  - id: /2013/08/16/python-bakery-2
+    title: "Part 2: Authentication"

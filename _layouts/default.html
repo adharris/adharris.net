@@ -6,6 +6,8 @@
 
         <title>{{ page.title }}</title>
 
+        <link rel="icon" type="image/png" href="favicon.png">
+
         <!-- syntax highlighting CSS -->
         <link rel="stylesheet" href="/css/syntax.css">
 
@@ -13,36 +15,11 @@
         <link rel="stylesheet" href="/css/main.css">
 
         <script src="/js/custom.modernizr.js"></script>
-
     </head>
+
     <body>
-
-
       {% capture sidebar %}
-
-        {% if page.series | size > 0 %}
-        <section id="series">
-          <header><h4>
-            <small>This series</small><br />
-            {{ page.series_title }}
-          </h4></header>
-          <nav>
-            <ul>
-              <li class="divider"></li>
-              {% for related in page.series %}
-              {% for post in site.posts %}
-              {% if post.id == related %}
-              <li {% if page.id == post.id %}class='active'{% endif %}>
-                <a href="{{ post.url }}">{{ post.short_title }}</a>
-              </li>
-              {% endif %}
-              {% endfor %}
-              {% endfor %}
-              <li class="divider"></li>
-            </ul> 
-          </nav>
-        </section>
-        {% endif %}
+        {% include series_sidebar.html %}
       {% endcapture %}
 
       <div id="page" class='{% if sidebar %}with-sidebar{% else %}no-sidebar{% endif %}'>

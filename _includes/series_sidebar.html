@@ -1,0 +1,43 @@
+{% if page.series %}
+
+{% for model in site.series %}
+{% if model.mdl_name == page.series %}
+{% assign series = model %}
+{% endif %}
+{% endfor %}
+
+<section id="series">
+  <h4>
+    <small>This series</small><br />
+    {{ series.name }}
+  </h4>
+  <nav>
+    <ul>
+      {% for article in series.articles %}
+      {% for post in site.posts %}
+      {% if post.id == article.id %}
+      <li {% if page.id == post.id %}class='active'{% endif %}>
+        <a href="{{ post.url }}">{{ article.title }}</a>
+      </li>
+      {% endif %}
+      {% endfor %}
+      {% endfor %}
+    </ul> 
+  </nav>
+</section>
+{% else %}
+{% comment %}
+<section>
+  <h4>
+    <small>Series</small>
+  </h4>
+  <nav>
+    <ul>
+      {% for series in site.series %}
+      <li><a href="/series/{{ series.mdl_name }}">{{ series.name }}</a></li>
+      {% endfor %}
+    </ul>    
+  </nav>
+</section>
+{% endcomment %}
+{% endif %}
