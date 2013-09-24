@@ -1,0 +1,32 @@
+{% extends "default.html" %}
+
+{% block sidebar %}
+{% if post.series %}
+  <section data-magellan-expedition="fixed">
+    <header>
+      <h4>
+        <small>this series</small><br />
+        {{ post.series.title }}
+      </h4>
+      <nav>
+        <ul>
+        {% for p in post.series.posts %}
+          <li {% if p == post %}class='active'{% endif %}>
+            <a href="{{ p.url }}">{{ p.front_matter.short_title }}</a>
+          </li>
+        {% endfor %}
+        </ul>
+      </nav>
+    </header>
+  </section>
+{% endif %}
+{% endblock sidebar %}
+
+
+{% block content %}
+<h2>
+  {{ post.title }}
+  <small>{{ post.date }}</small>
+</h2>
+{{ post.content }}
+{% endblock content %}

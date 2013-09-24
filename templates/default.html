@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+
+        <title>adharris</title>
+
+        <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/favicon.png') }}">
+
+        <!-- Custom CSS -->
+        {% assets 'css' %}
+          <link rel="stylesheet" href="{{ ASSET_URL }}">
+        {% endassets %}
+
+        <script src="{{ url_for('static', filename='js/custom.modernizr.js') }}"></script>
+        <script src="//code.jquery.com/jquery-1.10.1.min.js"></script> 
+    </head>
+
+    <body>
+      <div id="page" class='row'>
+        <div id="sidebar" class="large-3 columns">
+          <header>
+            <h1><a href="/">adharris</a></h1>
+          </header>
+          {%- block sidebar %}
+          {%- endblock sidebar %}
+        </div>
+        <section id="content" class="large-9 columns">
+          {%- block content %}
+          {%- endblock content %}
+        </section>
+      </div>
+
+      <footer id="social" class="row">
+        <ul class="inline large-9 large-offset-3 columns">
+          <li>
+            <a href="https://github.com/adharris">
+              <img src="{{ url_for('static', filename='img/GitHub-Mark-32px.png') }}" alt="Check me out on GitHub">
+            </a>
+          </li>
+        </ul>
+      </footer>
+
+      <script type="text/javascript" src="//cdn.jsdelivr.net/foundation/4.3.1/js/foundation.min.js"></script>
+      <script type="text/javascript" src="//cdn.jsdelivr.net/foundation/4.3.1/js/foundation/foundation.magellan.js"></script>
+
+    </body>
+</html>

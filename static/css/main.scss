@@ -1,0 +1,112 @@
+@charset "UTF-8";
+
+// http://kuler.adobe.com/Copy-of-Cool-Cantaloupe-color-theme-2771528
+$cantaloupe: #F2EBC0, #223840, #588729, #CAD942, #F26237;
+
+$beige  : nth($cantaloupe, 1);
+$blue   : nth($cantaloupe, 2);
+$green  : nth($cantaloupe, 3);
+$lime   : nth($cantaloupe, 4);
+$orange : nth($cantaloupe, 5);
+
+$darker_orange: darken(desaturate($orange, 11.5%), 31.57%);
+
+@import url(http://fonts.googleapis.com/css?family=Nunito:300|Inconsolata);
+
+$include-html-classes: false;
+$include-html-global-classes: true;
+$include-html-type-classes: true;
+$include-html-grid-classes: true;
+
+$body-font-family: "Nunito", Helvetica, Arial, sans-serif;
+$header-font-family: "Nunito", Helvetica, Arial, sans-serif;
+$code-font-family: "Inconsolata", Inconsolas, "Liberation Mono", Courier, monospace;
+
+@import 'normalize';
+@import 'foundation/_variables';
+@import 'foundation/components/global';
+
+$primary-color: $green;
+$anchor-font-color-hover: $orange;
+
+$h2-font-size: emCalc(32);
+$h3-font-size: emCalc(25);
+$h4-font-size: emCalc(20);
+$row-width: emCalc(1100);
+$column-gutter: emCalc(50);
+
+$code-color: $blue;
+$code-font-weight: normal;
+
+
+@import  'foundation/components/grid';
+@import  'foundation/components/side-nav';
+@import  'foundation/components/type';
+@import  'foundation/components/panels';
+
+// Code Colors
+$code_font_size: $base-font-size;
+$code_line_height: $base-line-height;
+
+$code-background: transparent;
+$code-text-shadow: none;
+$code-box-shadow: none;
+$code-border: none;
+
+$code-color: $body-font-color;
+$code-color-comment: $subheader-font-color; 
+$code-color-keyword: $blue;
+$code-color-literal: $green;
+$code-color-name: $body-font-color;
+$code-color-name--function: $orange;
+$code-color-name--class: $orange;
+$code-color-name--builtin: $darker-orange; 
+
+$code-color-operator: lighten(adjust-hue($blue, 50), 25%);
+
+@import 'pygments';
+
+$divider: $side-nav-divider-color $side-nav-divider-style $side-nav-divider-size;
+
+.highlight { 
+  pre { 
+    font-family: $code-font-family;
+    line-height: 1.2;
+  }
+  .k, .kc, .kd, .kn, .kp, .kr, .kt { font-weight: bold; }
+}
+
+code { @include radius;
+  border: solid 1px $blue;
+  padding: .15em .25em;
+}
+
+::selection { background: $green; color: white; }
+::-moz-selection { background: $green; color: white;}
+
+body {padding: emCalc(20, 0, 50); }
+
+a { @include single-transition(color); }
+
+footer.row {margin-top: emCalc(40);}
+footer ul { list-style: none; text-align: center;}
+
+#content { 
+  margin-top: emCalc(16); 
+  article + article { margin-top: emCalc(40); }
+}
+
+#sidebar { 
+  &> header {margin-bottom: emCalc(8); 
+    h1, h2, h3, h4 {margin-bottom: 0; }
+  }
+  section h4 { font-size: emCalc(22); margin-bottom: emCalc(2); }
+  nav ul { @include side-nav;
+    li:hover a { color: $anchor-font-color-hover; }
+  }
+  h4+nav ul  { padding-top: emCalc(2); }
+}
+
+@media #{$medium} {
+  #sidebar {text-align: right;}
+}
