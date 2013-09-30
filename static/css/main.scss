@@ -74,6 +74,7 @@ $divider: $side-nav-divider-color $side-nav-divider-style $side-nav-divider-size
     line-height: 1.2;
   }
   .k, .kc, .kd, .kn, .kp, .kr, .kt { font-weight: bold; }
+  margin-bottom: emCalc(20);
 }
 
 code { @include radius;
@@ -110,3 +111,5 @@ footer ul { list-style: none; text-align: center;}
 @media #{$medium} {
   #sidebar {text-align: right;}
 }
+
+ul { padding-left: emCalc(20);}

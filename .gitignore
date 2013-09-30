@@ -1,5 +1,6 @@
 _site/
 s3_website.yml
 .sass-cache
+.webassets-cache
 
 venv

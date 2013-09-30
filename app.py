@@ -20,9 +20,7 @@ assets = Environment(app)
 css = Bundle('css/main.scss', filters='scss', output='css/main.css')
 assets.register('css', css)
 
-
-
-def gist(id, filename=None, version=None):
+def gist(id, filename=None, version=None, lines=None):
   g = Github()
   gist = g.get_gist(id)
 
@@ -33,6 +31,13 @@ def gist(id, filename=None, version=None):
         break
 
   f = gist.files[filename or gist.files.keys()[0]]
+  if lines:
+    content = []
+    split = f.content.splitlines()
+    for start, stop in lines:
+      content.append('\n'.join(split[start - 1:stop]))
+    return "\n\n".join(content)
+
   return f.content
 
 @app.context_processor
