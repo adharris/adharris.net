@@ -10,7 +10,9 @@ series_index: 1
 [Bakery][bakery_project] is a Drupal module which provides single sign on to
 Drupal sites which are running on the same domain.  This means that a user who
 logs in on one Drupal site is transparently logged in to other Drupal sites on
-the same domain, and when they log out they are logged out everywhere.![](/models/posts/A000014.jpg)
+the same domain, and when they log out they are logged out everywhere.
+
+![](/models/posts/ballmer.png)
 
 Bakery performs this magic through the use of a shared domain cookie.  That is,
 a cookie that is set with a [leading dot on the domain][wiki-leading-dot], which
